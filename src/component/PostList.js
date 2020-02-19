@@ -11,6 +11,7 @@ function PostList(props) {
         <Post username={post.username}
           title={post.title}
           content={post.content}
+          tally={post.tally}
           key={post.id}/>
       )}
     </div>

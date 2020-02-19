@@ -6,14 +6,22 @@ class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      tally: this.props.tally
     };
+    this.handleUpClick = this.handleUpClick.bind(this);
+    this.handleDownClick = this.handleDownClick.bind(this);
   }
 
   handleUpClick() {
-
+    let newTally = this.state.tally;
+    newTally += 1;
+    this.setState({tally: newTally});
   }
+
   handleDownClick() {
-    
+    let newTally = this.state.tally;
+    newTally -= 1;
+    this.setState({tally: newTally});
   }
 
   render(props) {
@@ -22,7 +30,7 @@ class Post extends React.Component {
         <p>{this.props.username}</p>
         <h2>{this.props.title}</h2>
         <p>{this.props.content}</p>
-        <h3>{this.props.tally}</h3>
+        <h3>{this.state.tally}</h3>
         <button onClick={this.handleUpClick}>Like</button>
         <button onClick={this.handleDownClick}>Dislike</button>
       </div>
