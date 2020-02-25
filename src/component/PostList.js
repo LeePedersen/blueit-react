@@ -12,6 +12,9 @@ function PostList(props) {
           title={post.title}
           content={post.content}
           tally={post.tally}
+          onUpClick={props.onUpClick}
+          onDownClick={props.onDownClick}
+          id={post.id}
           key={post.id}/>
       )}
     </div>
@@ -19,7 +22,9 @@ function PostList(props) {
 }
 
 PostList.propTypes = {
-  postList: PropTypes.array
+  postList: PropTypes.array,
+  onUpClick: PropTypes.func.isRequired,
+  onDownClick: PropTypes.func.isRequired
 };
 
 export default PostList;
