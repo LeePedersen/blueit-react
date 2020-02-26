@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { v4 } from 'uuid';
 
 function NewPost(props) {
@@ -7,13 +8,22 @@ function NewPost(props) {
   let _title = null;
   let _content = null;
   function handleNewPostForm(event) {
+    const { dispatch } = props;
     event.preventDefault();
-    props.onNewPostCreation({username: _username.value, title: _title.value, content: _content.value, tally: 0, id: v4()});
-    console.log(_username.value, _title.value, _content.value)
-    _username.value = '';
-    _title.value = '';
-    _content.value = '';
-  }
+   const action = {
+     type: 'ADD_POST',
+     username: _username.value,
+     title: _title.value,
+     content: _content.value,
+     tally: 0,
+     id: v4()
+   };
+   dispatch(action);
+   _username.value = '';
+   _title.value = '';
+   _content.value = '';
+ }
+
   return (
     <div>
       <form onSubmit={handleNewPostForm}>
@@ -42,4 +52,4 @@ NewPost.propTypes = {
   onNewPostCreation: PropTypes.func
 };
 
-export default NewPost;
+export default connect()(NewPost);

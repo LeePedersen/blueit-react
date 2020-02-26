@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   return (
     <div className="æth€r">
-    <h1>Help Queue</h1>
+    <h1>POSTINGS</h1>
     <Link to="/" style={{position:'relative', zIndex:'500'}}>Home</Link> | <Link to="/NewPost" style={{position:'relative', zIndex:'500'}}>Create New Post</Link>
     </div>
   )
